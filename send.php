@@ -1,8 +1,6 @@
 <?php
-	$msgBuffer = fopen("msgBuffer.txt", "a+");
-	if(filesize("msgBuffer.txt") != 0)
-		fwrite($msgBuffer, "\r\n");
+	$msgBuffer = fopen("msgBuffer", "a+");
 	fwrite($msgBuffer, $_GET["userName"] . " says: ");
-	fwrite($msgBuffer, $_GET["userMsg"]);
+	fwrite($msgBuffer, $_GET["userMsg"] . "\r\n");
 	fclose($msgBuffer);
 ?>
