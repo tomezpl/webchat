@@ -1,0 +1,40 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="default.css">
+		<script src="webchat.js"></script>
+	</head>
+	
+	<body onload="focusOnMsgForm()">
+		<!-- the user types their message in here -->
+		<form id="userMsgForm" onsubmit="sendMsg(); clearMsgForm(); scrollToBottom(); return false;">
+			<input type="text" id="userMsg"></input><br>
+			<input type="submit" value="Send message" id="userMsgSubmit"></input>
+		</form>
+		
+		<hr>
+		
+		<script>
+			if(username == null || username == "undefined")
+				askName();
+			
+			function clearMsgForm()
+			{
+				document.getElementById("userMsgForm").reset();
+			}
+			
+			function focusOnMsgForm()
+			{
+				var msgInput = document.getElementById("userMsg");
+				msgInput.focus();
+				msgInput.select();
+			}
+			
+			function scrollToBottom()
+			{
+				parent.window.scrollTo(window.scrollX, parent.document.body.scrollHeight);
+			}
+		</script>
+	</body>
+</html>
